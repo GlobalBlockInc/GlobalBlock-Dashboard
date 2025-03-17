@@ -12,19 +12,8 @@ jobs:
       
       - name: Create Dashboard File
         run: |
-          echo "<!DOCTYPE html>" > dashboard.html
-          echo "<html lang='en'>" >> dashboard.html
-          echo "<head>" >> dashboard.html
-          echo "  <meta charset='UTF-8'>" >> dashboard.html
-          echo "  <meta name='viewport' content='width=device-width, initial-scale=1.0'>" >> dashboard.html
-          echo "  <title>GlobalBlock Dashboard</title>" >> dashboard.html
-          echo "</head>" >> dashboard.html
-          echo "<body>" >> dashboard.html
-          echo "  <h1>Welcome to GlobalBlockInc Dashboard</h1>" >> dashboard.html
-          echo "  <p>Node Operators and Customers can log in here.</p>" >> dashboard.html
-          echo "</body>" >> dashboard.html
-          echo "</html>" >> dashboard.html
-      
+          printf "<!DOCTYPE html>\n<html lang='en'>\n<head>\n  <meta charset='UTF-8'>\n  <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n  <title>GlobalBlock Dashboard</title>\n</head>\n<body>\n  <h1>Welcome to GlobalBlockInc Dashboard</h1>\n  <p>Node Operators and Customers can log in here.</p>\n</body>\n</html>" > dashboard.html
+
       - name: Commit Generated Code
         run: |
           git config --global user.name "github-actions"
