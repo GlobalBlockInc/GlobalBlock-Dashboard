@@ -10,9 +10,22 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@v3
       
-      - name: Create Dashboard File
+      - name: Create Dashboard HTML
         run: |
-          printf "<!DOCTYPE html>\n<html lang='en'>\n<head>\n  <meta charset='UTF-8'>\n  <meta name='viewport' content='width=device-width, initial-scale=1.0'>\n  <title>GlobalBlock Dashboard</title>\n</head>\n<body>\n  <h1>Welcome to GlobalBlockInc Dashboard</h1>\n  <p>Node Operators and Customers can log in here.</p>\n</body>\n</html>" > dashboard.html
+          cat <<EOF > dashboard.html
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>GlobalBlock Dashboard</title>
+          </head>
+          <body>
+            <h1>Welcome to GlobalBlockInc Dashboard</h1>
+            <p>Node Operators and Customers can log in here.</p>
+          </body>
+          </html>
+          EOF
 
       - name: Commit Generated Code
         run: |
